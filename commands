@@ -103,6 +103,10 @@ case "$1" in
     "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/subcommands/wal-enable" "$@"
     ;;
 
+  $PLUGIN_COMMAND_PREFIX:wal-disable)
+    "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/subcommands/wal-disable" "$@"
+    ;;
+
   $PLUGIN_COMMAND_PREFIX:wal-recover)
     "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/subcommands/wal-recover" "$@"
     ;;
@@ -135,6 +139,7 @@ case "$1" in
     $PLUGIN_COMMAND_PREFIX:unexpose <name>, Unexpose a previously exposed $PLUGIN_SERVICE service
     $PLUGIN_COMMAND_PREFIX:unlink <name> <app>, Unlink the $PLUGIN_SERVICE service from the app
     $PLUGIN_COMMAND_PREFIX:wal-enable <name>, Enable continuous WAL segment archiving for <name>
+    $PLUGIN_COMMAND_PREFIX:wal-disable <name>, Disable continuous WAL segment archiving for <name>. This command will keep previously archived WAL segment
     $PLUGIN_COMMAND_PREFIX:wal-recover <name> [timestamp], Recover from backups generated with $PLUGIN_COMMAND_PREFIX:wal-enable. Example timestamp format: '2016-07-14 22:39:00 EST'
 help_content
     }
